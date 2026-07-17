@@ -22,7 +22,7 @@ jobs:
   docs:
     uses: MetOffice/growss/.github/workflows/sphinx-docs.yaml@develop
     with:
-      python-version: "3.12.9"
+      python-version: "3.12.12"
       timeout-minutes: 10
       docs-dir: .
       source-dir: ./source

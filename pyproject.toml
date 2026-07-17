@@ -1,8 +1,9 @@
 [project]
 name = "simulation-systems"
 version = "0.1.0"
-description = "Simulation Systems Working Practices"
+description = "Simulation Systems Working Practices & Discussions"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
     "pydata-sphinx-theme==0.16.1",
@@ -14,3 +15,11 @@ dependencies = [
     "sphinxcontrib-svg2pdfconverter==1.3.0",
     "sphinxcontrib-mermaid==1.1.0",
 ]
+
+[project.urls]
+repository = "https://github.com/MetOffice/simulation-systems"
+documentation = "https://metoffice.github.io/simulation-systems/"
+discussion = "https://github.com/MetOffice/simulation-systems/discussions"
+
+[tool.setuptools]
+packages = []
