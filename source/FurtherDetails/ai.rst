@@ -63,7 +63,7 @@ This policy adds process controls for AI use. It does not alter the
 BSD-3-Clause licence terms, warranties, or disclaimers.
 
 Attribution and review requirements in this policy are mandatory contribution
-conditions for this repository.
+conditions for the simulation systems repositories.
 
 Attribution Requirements
 ------------------------
@@ -71,33 +71,46 @@ Attribution Requirements
 If an approved Generative AI tool is used, you must provide attribution in two
 places:
 
-#. **the source file header**
+**1. the source file header**
 
-   Add a comment near the top of the file. Use the native comment style for the
-   language, for example:
+Add a comment near the top of the file. Use the native comment style for the
+language, for example:
 
-   .. code-block:: fortran
+.. tab-set::
 
-      ! Some content in this file was generated or refactored with assistance
-      ! from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
+   .. tab-item:: Fortran
 
-   .. code-block:: python
+      .. code-block:: f90
 
-      # Some content in this file was generated or refactored with assistance
-      # from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
+         ! Some content in this file was generated or refactored with assistance
+         ! from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
 
-#. **the commit message**
+   .. tab-item:: Python
 
-   Your git commit message must identify the tool and what it assisted with, for
-   example:
+      .. code-block:: python
 
-   .. code-block:: text
+         # Some content in this file was generated or refactored with assistance
+         # from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
 
-      Refactor spatial interpolation routines to improve performance.
+   .. tab-item:: C++
 
-      - Co-authored-by: [Tool Name] ([Model/Version])
-      - Assisted-by: [Tool Name] ([Model/Version])
-        for spatial interpolation optimisation.
+      .. code-block:: cpp
+
+         // Some content in this file was generated or refactored with assistance
+         // from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
+
+**2. the commit message**
+
+Your git commit message must identify the tool and what it assisted with, for
+example:
+
+.. code-block:: text
+
+  Refactor spatial interpolation routines to improve performance.
+
+  - Co-authored-by: [Tool Name] ([Model/Version])
+  - Assisted-by: [Tool Name] ([Model/Version])
+    for spatial interpolation optimisation.
 
 Attribution must be specific enough for later audit. Include tool name,
 model/version where available, and date in the source file header.
