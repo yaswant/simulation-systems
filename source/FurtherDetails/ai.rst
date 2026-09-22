@@ -39,9 +39,18 @@ Core Principles and Tool Restrictions
 * **Approved Enterprise-Tier Tools Only**: Contributors may only use
   enterprise-tier AI tools approved by their employing organisation or the
   repository maintainers.
+* **AI Agents Cannot Commit**: AI tools and agents are not permitted to directly
+  commit code, open pull requests, or perform repository operations. All
+  AI-generated or AI-assisted content must be reviewed, validated, and committed
+  by a human contributor with explicit intent and accountability.
 * **Contributor Responsibility**: The human contributor is responsible for all
   submitted content, including correctness, licensing checks, and project
   standards compliance.
+
+.. dropdown:: Internal Met Office Contributors
+
+    For guidance specific to the Met Office, consult the
+    `central Met Office AI Policy <https://metoffice.sharepoint.com/sites/AICommsSite/SitePages/Met-Office-AI-Policy.aspx>`__.
 
 Approved enterprise-tier tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,22 +91,25 @@ language, for example:
 
       .. code-block:: f90
 
-         ! Some content in this file was generated or refactored with assistance
-         ! from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
+         ! Some content in this file was generated or refactored with assistance from
+         ! - [Tool Name] ([Model/Version]).
 
    .. tab-item:: Python
 
       .. code-block:: python
 
-         # Some content in this file was generated or refactored with assistance
-         # from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
+         # Some content in this file was generated or refactored with assistance from
+         # - [Tool Name] ([Model/Version]).
 
    .. tab-item:: C++
 
       .. code-block:: cpp
 
-         // Some content in this file was generated or refactored with assistance
-         // from [Tool Name] ([Model/Version]) on [YYYY-MM-DD].
+         // Some content in this file was generated or refactored with assistance from
+         // - [Tool Name] ([Model/Version]).
+
+Do not repeat attribution or the tool name in the file header if it is already
+included. If you use a new tool, add it to the file header list.
 
 **2. the commit message**
 
@@ -108,7 +120,6 @@ example:
 
   Refactor spatial interpolation routines to improve performance.
 
-  - Co-authored-by: [Tool Name] ([Model/Version])
   - Assisted-by: [Tool Name] ([Model/Version])
     for spatial interpolation optimisation.
 
@@ -121,7 +132,7 @@ Internal example (non-normative)
 For Met Office contributors, the following is an acceptable example tool
 identifier:
 
-* Met Office GitHub Copilot Enterprise (Claude Sonnet 4.6)
+``Met Office GitHub Copilot Enterprise (Claude Sonnet 5)``
 
 This example is provided for convenience. It does not change the requirement
 that only approved enterprise-tier tools may be used.
