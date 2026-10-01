@@ -9,8 +9,8 @@
 AI Policy
 =========
 
-The primary objective of this policy is to prevent introduction of
-Intellectual Property Rights (IPR) restricted code into the simulation systems.
+The primary objective of this policy is to prevent the introduction of
+Intellectual Property Rights (IPR)-protected code into the simulation systems.
 
 This policy is written so it can be reused across open source repositories
 using the BSD-3-Clause licence, which does not define requirements for
@@ -24,7 +24,7 @@ This policy applies to AI-assisted contributions in:
 * source code
 * tests
 * scripts and configuration
-* documentation files containing code examples
+* documentation, including prose/narrative content and code examples
 
 For this policy, AI-assisted means content generated, completed, or
 substantially refactored by a Generative AI tool.
@@ -32,20 +32,22 @@ substantially refactored by a Generative AI tool.
 Core Principles and Tool Restrictions
 -------------------------------------
 
-* **Risk of Public-Domain AI**: AI tools trained on public repositories can emit
-  code that violates open-source licences or copyrights.
-* **No Free/Personal-Tier Tools**: Use of free or personal-tier AI coding tools
-  is *strictly prohibited* for project contributions.
-* **Approved Enterprise-Tier Tools Only**: Contributors may only use
+* **Acknowledge Public-Domain AI Risks**: AI tools trained on public
+  repositories can generate code that violates open-source licences or
+  copyrights.
+* **Do Not Use Free or Personal-Tier Tools**: Use of free or personal-tier
+  AI coding tools is *strictly prohibited* for project contributions.
+* **Use Approved Enterprise-Tier Tools Only**: Contributors may only use
   enterprise-tier AI tools approved by their employing organisation or the
   repository maintainers.
-* **AI Agents Cannot Commit**: AI tools and agents are not permitted to directly
-  commit code, open pull requests, or perform repository operations. All
-  AI-generated or AI-assisted content must be reviewed, validated, and committed
-  by a human contributor with explicit intent and accountability.
-* **Contributor Responsibility**: The human contributor is responsible for all
-  submitted content, including correctness, licensing checks, and project
-  standards compliance.
+* **Prohibit AI Agents From Committing Code**: AI tools and agents are not
+  permitted to directly commit code, open pull requests, or perform repository
+  operations. All AI-generated or AI-assisted content must be reviewed,
+  validated, and committed by a human contributor with explicit intent and
+  accountability.
+* **Assume Full Contributor Responsibility**: The human contributor is
+  responsible for all submitted content, including correctness, licensing
+  checks, and project standards compliance.
 
 .. dropdown:: Internal Met Office Contributors
 
@@ -63,7 +65,8 @@ An approved tool must satisfy all of the following:
 * controls appropriate to institutional IPR and data handling requirements
 
 If a contributor cannot use an approved enterprise-tier tool, code must be
-written manually.
+written manually without the use of any AI or machine learning (ML) code
+generation assistants.
 
 Legal framing and BSD-3-Clause compatibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -71,19 +74,20 @@ Legal framing and BSD-3-Clause compatibility
 This policy adds process controls for AI use. It does not alter the
 BSD-3-Clause licence terms, warranties, or disclaimers.
 
-Attribution and review requirements in this policy are mandatory contribution
-conditions for the simulation systems repositories.
+Attribution and review requirements in this policy are **mandatory**
+contribution conditions for the simulation systems repositories.
 
 Attribution Requirements
 ------------------------
 
-If an approved Generative AI tool is used, you must provide attribution in two
-places:
+If an approved Generative AI tool is used, you **must** provide attribution in
+two places:
 
 **1. the source file header**
 
-Add a comment near the top of the file. Use the native comment style for the
-language, for example:
+Add a comment near the top of the file, including documentation-only files
+(for example ``.rst`` files with no code examples). Use the native comment
+style for the language or markup, for example:
 
 .. tab-set::
 
@@ -92,50 +96,79 @@ language, for example:
       .. code-block:: f90
 
          ! Some content in this file was generated or refactored with assistance from
-         ! - [Tool Name] ([Model/Version]).
+         ! - [Tool Name] ([Model Version]).
 
    .. tab-item:: Python
 
       .. code-block:: python
 
          # Some content in this file was generated or refactored with assistance from
-         # - [Tool Name] ([Model/Version]).
+         # - [Tool Name] ([Model Version]).
 
    .. tab-item:: C++
 
       .. code-block:: cpp
 
          // Some content in this file was generated or refactored with assistance from
-         // - [Tool Name] ([Model/Version]).
+         // - [Tool Name] ([Model Version]).
+
+   .. tab-item:: reStructuredText
+
+      .. code-block:: rst
+
+         ..
+            Some content in this file was generated or refactored with assistance from
+            - [Tool Name] ([Model Version]).
+
+.. dropdown:: Internal example (non-normative)
+
+    For Met Office contributors, the following is an acceptable example tool
+    identifier: ``Met Office GitHub Copilot Enterprise (Claude Sonnet 5)``.
+
+    This example is provided for convenience. It does not change the
+    requirement that only approved enterprise-tier tools may be used.
 
 Do not repeat attribution or the tool name in the file header if it is already
-included. If you use a new tool, add it to the file header list.
-
-**2. the commit message**
-
-Your git commit message must identify the tool and what it assisted with, for
-example:
+included. If you use a new tool or version, add it to the list instead. For
+example, on first use:
 
 .. code-block:: text
 
-  Refactor spatial interpolation routines to improve performance.
+  Some content in this file was generated or refactored with assistance from
+  - [Institution Name] [Tool Name] (Claude Haiku 4.7)
 
-  - Assisted-by: [Tool Name] ([Model/Version])
-    for spatial interpolation optimisation.
+After a newer version of the same tool is used:
+
+.. code-block:: text
+
+  Some content in this file was generated or refactored with assistance from
+  - [Institution Name] [Tool Name] (Claude Haiku 4.7/4.8)
+
+After a second tool is also used:
+
+.. code-block:: text
+
+  Some content in this file was generated or refactored with assistance from
+  - [Institution Name] [Tool Name] (Claude Haiku 4.7/4.8)
+  - [Other Institution Name] [Other Tool Name] (Claude Opus 4.8)
+
+**2. the pull request description**
+
+Commit messages are easy to forget, especially across multiple commits, and
+are not reliably enforceable before merge. The pull request description
+**must** therefore identify the tool and what it assisted with, for example:
+
+.. code-block:: text
+
+  Assisted-by: [Tool Name] ([Model Version])
+  for spatial interpolation optimisation.
+
+Repeating the same note in individual commit messages is encouraged for
+traceability, but is not a substitute for the pull request description, which
+is what reviewers check before merge.
 
 Attribution must be specific enough for later audit. Include tool name,
 model/version where available, and date in the source file header.
-
-Internal example (non-normative)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For Met Office contributors, the following is an acceptable example tool
-identifier:
-
-``Met Office GitHub Copilot Enterprise (Claude Sonnet 5)``
-
-This example is provided for convenience. It does not change the requirement
-that only approved enterprise-tier tools may be used.
 
 Code Review Guidelines
 ----------------------
@@ -150,7 +183,7 @@ Reviewer Checklist Matrix
 | Step | Action             | Pass Criteria                | Fail Action            |
 +======+====================+==============================+========================+
 | 1    | Check file header  | Explicitly names approved    | Block merge if         |
-|      | and commit message | enterprise-tier tool and     | free/personal tier     |
+|      | and PR description | enterprise-tier tool and     | free/personal tier     |
 |      |                    | includes required attribution| is used                |
 +------+--------------------+------------------------------+------------------------+
 | 2    | Check licence      | No obvious proprietary or    | Pause merge and        |
