@@ -10,8 +10,8 @@ AI Policy
 =========
 
 The primary objective of this policy is to prevent the introduction of
-third-party intellectual property rights-protected code into the simulation
-systems.
+third-party intellectual property rights (IPR)-protected code into the
+simulation systems.
 
 This policy is written so it can be reused across open source repositories
 using the BSD-3-Clause licence, which does not define requirements for
